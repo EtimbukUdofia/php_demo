@@ -1,64 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+$books = [
+  [
+    "name" => "golden retriever tut",
+    "author" => "John Doe",
+    "site" => "http://example.com",
+    "year" => 2011
+  ],
+  [
+    "name" => "Charisma of the street",
+    "author" => "Sam young",
+    "site" => "http://example.com",
+    "year" => 1967
+  ],
+  [
+    "name" => "Thug hunter",
+    "author" => "Mori Kogi",
+    "site" => "http://example.com",
+    "year" => 2022
+  ]
+];
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Demo</title>
-</head>
+// function filter($items, $func){
+//   $filteredItems = [];
 
-<body>
-  <h1>Recommended Books</h1>
+//   foreach($items as $item){
+//     if($func($item)){
+//       $filteredItems[] = $item;
+//     };
+//   };
 
-  <?php
-  $books = [
-    [
-      "name" => "golden retriever tut",
-      "author" => "John Doe",
-      "site" => "http://example.com",
-      "year" => 2011
-    ],
-    [
-      "name" => "Charisma of the street",
-      "author" => "Sam young",
-      "site" => "http://example.com",
-      "year" => 1967
-    ],
-    [
-      "name" => "Thug hunter",
-      "author" => "Mori Kogi",
-      "site" => "http://example.com",
-      "year" => 2022
-    ]
-  ];
+//   return $filteredItems;
+// };
 
-  // function filter($items, $func){
-  //   $filteredItems = [];
+$filteredBooks = array_filter($books, function ($book) {
+  return $book["year"] > 2000;
+});
 
-  //   foreach($items as $item){
-  //     if($func($item)){
-  //       $filteredItems[] = $item;
-  //     };
-  //   };
-
-  //   return $filteredItems;
-  // };
-
-  $filteredBooks = array_filter($books, function($book){
-    return $book["year"] > 2000;
-  });
-  ?>
-
-  <ul>
-    <?php foreach ($filteredBooks as $item) : ?>
-      <li>
-        <a href="<?= $item["site"] ?>">
-          <?= $item["name"] ?> (<?= $item["year"] ?>)
-        </a>
-      </li>
-    <?php endforeach; ?>
-  </ul>
-
-</body>
-
-</html>
+require "index.view.php";
