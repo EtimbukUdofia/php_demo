@@ -32,19 +32,21 @@
     ]
   ];
 
-  function filter($items, $key, $value){
-    $filteredItems = [];
+  // function filter($items, $func){
+  //   $filteredItems = [];
 
-    foreach($items as $item){
-      if($item["$key"] === $value){
-        $filteredItems[] = $item;
-      }
-    };
+  //   foreach($items as $item){
+  //     if($func($item)){
+  //       $filteredItems[] = $item;
+  //     };
+  //   };
 
-    return $filteredItems;
-  };
+  //   return $filteredItems;
+  // };
 
-  $filteredBooks = filter($books, "year", "2022");
+  $filteredBooks = array_filter($books, function($book){
+    return $book["year"] > 2000;
+  });
   ?>
 
   <ul>
