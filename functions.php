@@ -1,13 +1,15 @@
 <?php
 
-function dumpAndDIe($value){
-echo "
+function dumpAndDIe($value)
+{
+  echo "
 <pre>";
   var_dump($value);
   echo "</pre>";
-die();
+  die();
 };
 
-function UrlIs($value){
-return $_SERVER["REQUEST_URI"] === $value;
+function UrlIs($value)
+{
+  return $_SERVER["REQUEST_URI"] === $value;
 };
