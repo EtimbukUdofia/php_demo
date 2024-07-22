@@ -33,7 +33,7 @@ function routeToController($uri, $routes)
   }
 };
 
-function abort($statusCode = 404)
+function abort($statusCode = Response::NOT_FOUND)
 {
   http_response_code($statusCode);
   require "./views/{$statusCode}.php";
