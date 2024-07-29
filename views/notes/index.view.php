@@ -6,10 +6,11 @@
   <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
     <ul>
       <?php foreach ($notes as $note) : ?>
-        <li>
+        <li class="flex justify-between">
           <a href="/note?id=<?= $note["id"] ?>" class="text-blue-900 hover:underline">
             <?= htmlspecialchars($note["body"]) ?>
           </a>
+          <span class="text-xs"><?= $note["created_at"] ?></span>
         </li>
       <?php endforeach; ?>
     </ul>

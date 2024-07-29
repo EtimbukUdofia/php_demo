@@ -29,7 +29,7 @@ function routeToController($uri, $routes)
 function abort($statusCode = Response::NOT_FOUND)
 {
   http_response_code($statusCode);
-  require "./views/{$statusCode}.php";
+  require base_path("./views/{$statusCode}.php");
   die();
 };
 
