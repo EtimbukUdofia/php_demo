@@ -1,4 +1,7 @@
 <?php
+
+use core\Response;
+
 $uri = parse_url($_SERVER["REQUEST_URI"])["path"];
 
 // switch ($uri){
