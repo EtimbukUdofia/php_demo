@@ -22,6 +22,6 @@ if (!empty($errors)) {
 }
 
 $body = $_POST["body"];
-$db->query('INSERT INTO notes(body, user_id) VALUES(:body, :user_id)', ["body" => $body, "user_id" => 1]);
+$db->query('INSERT INTO notes(body, user_id) VALUES(:body, :user_id)', ["body" => $body, "user_id" => 9]);
 header("location: /notes");
 die();

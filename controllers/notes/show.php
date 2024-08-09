@@ -5,7 +5,7 @@ use core\Database;
 
 $db = App::resolve(Database::class);
 
-$currentUserId = 1;
+$currentUserId = 9;
 
 $note = $db->query('select * from notes where id = :id', ["id" => $_GET['id']])->findOrFail();
 authorize($note["user_id"] === $currentUserId);
