@@ -8,7 +8,6 @@ use core\Validator;
 $email = $_POST["email"];
 $password = $_POST["password"];
 
-// validate the form inputs.
 $errors = [];
 
 if (!Validator::email($email)) {
@@ -27,24 +26,19 @@ if (!empty($errors)) {
 
 
 $db = App::resolve(Database::class);
-//check if there is an existing user
 $user = $db->query('select * from users where email = :email', [
   'email' => $email
 ])->find();
 
-// if yes, redirect to login page
 if ($user) {
-  // that user already exists
-  header("location: /"); //redirect to login page
+  header("location: /");
   exit();
 } else {
-  // if no, save one to db and then log the user in and redirect
   $db->query("INSERT INTO users(email, password) VALUES(:email, :password)", [
     'email' => $email,
-    'password' => $password
+    'password' => password_hash($password, PASSWORD_BCRYPT)
   ]);
 
-  // alert user logged in
   $_SESSION["user"] = [
     "email" => $email
   ];
