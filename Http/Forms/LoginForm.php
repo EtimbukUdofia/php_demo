@@ -22,4 +22,8 @@ class LoginForm{
     // getter function
     return $this->errors;
   }
+
+  public function error($type, $message){
+    $this->errors[$type] = $message;
+  }
 }
