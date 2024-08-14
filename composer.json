@@ -1,0 +1,16 @@
+{
+    "name": "victory/demo",
+    "authors": [
+        {
+            "name": "EtimbukUdofia",
+            "email": "etimbukudofia9@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload":{
+        "psr-4":{
+            "core\\":"core/",
+            "Http\\":"Http/"
+        }
+    }
+}
