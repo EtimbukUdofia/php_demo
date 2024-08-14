@@ -7,7 +7,6 @@ use core\Validator;
 
 class LoginForm{
   protected $errors = [];
-  // protected $attributes;
 
   public function __construct(public array $attributes)
   {
